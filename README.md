@@ -1,6 +1,11 @@
 # Exam: "Guess Who? - Celebrity Edition"
 
-## Student: s319440 Beci Paolo 
+# How to run
+- Open main folder
+- Run `cd server` -> `npm install` -> `nodemon index.js`
+- Execute `cd ..`
+- Run `cd client` -> `npm install` -> `npm run dev`
+- Enjoy! :stuck_out_tongue_winking_eye:
 
 # Server side
 ## API Server
