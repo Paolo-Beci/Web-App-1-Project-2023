@@ -1,0 +1,17 @@
+/* GENERAL SETTINGS */ 
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* BUTTON STYLE */
+.guess-button {
+    font-size: 20px;
+    color: white;
+    border-radius: 20px;
+    background-color: #FF0E00;
+    padding: 10px 20px;
+    border: none;
+}

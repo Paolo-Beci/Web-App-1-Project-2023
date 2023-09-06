@@ -1,0 +1,40 @@
+/* BRAND FONT */
+@font-face {
+    font-family: 'Fugaz One';
+    src: url('../fonts/fugaz-one/FugazOne-Regular.ttf') format('truetype');
+}
+
+.title,
+.subtitle,
+.easy-button,
+.medium-button,
+.hard-button,
+.guess-button,
+.card-title,
+.choice-button,
+.login-button,
+.history-button {
+  font-family: 'Fugaz One', regular;
+}
+
+.subtitle {
+  font-size: 20px;
+}
+
+@font-face {
+  font-family: 'Monofett';
+  src: url('../fonts/monofett/Monofett-Regular.ttf') format('truetype');
+}
+
+.start-button {
+  font-family: "Monofett", regular;
+}
+
+/* PAGE CONFIG */
+
+
+/* LOGO NAVBAR */
+.logo-navbar {
+  height: 70px; 
+  margin-right: 20px;
+}

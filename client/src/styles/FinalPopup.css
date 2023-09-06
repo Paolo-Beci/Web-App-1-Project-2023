@@ -1,0 +1,21 @@
+.final-popup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+  
+.final-popup .title {
+    text-align: center;
+}
+  
+.final-popup .subtitle {
+    text-align: center;
+    margin-top: 10px;
+}
+  
+.final-popup .guess-button {
+    margin-top: 20px;
+}
+  

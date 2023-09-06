@@ -1,0 +1,13 @@
+.login-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.error-message {
+    background-color: #F38787;
+    color: white; 
+    border-radius: 20px;
+    padding: 10px;
+  }
+  
