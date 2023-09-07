@@ -7,6 +7,7 @@ const crypto = require('crypto');
 exports.getUserById = (id) => {
   return new Promise((resolve, reject) => {
     const sql = 'SELECT * FROM users WHERE id=?';
+
     db.get(sql, [id], (err, row) => {
       if (err)
         reject(err);
@@ -24,6 +25,7 @@ exports.getUserById = (id) => {
 exports.getUser = (email, password) => {
   return new Promise((resolve, reject) => {
     const sql = 'SELECT * FROM users WHERE email=?';
+
     db.get(sql, [email], (err, row) => {
       if (err) {
         reject(err);
@@ -68,11 +70,12 @@ exports.register = (email, name,  pass) => {
     const sql = 'INSERT INTO users (email, name, hash, salt) VALUES (?, ?, ?, ?)';
     const salt = crypto.randomBytes(16);
     let password;
+
     hashPassword(pass, salt)
       .then((hashedPassword) => {
-        // Use the hashed password here
         password = hashedPassword
         console.log('New user:', email, name, password, hashedPassword);
+        
         db.run(sql, [email, name, password, salt], (err, row) => {
           if (err) {
             reject(err);
@@ -85,7 +88,6 @@ exports.register = (email, name,  pass) => {
         });
       })
       .catch((err) => {
-        // Handle error here
         console.error('Error hashing password:', err);
       });
   })

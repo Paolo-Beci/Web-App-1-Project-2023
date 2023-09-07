@@ -14,6 +14,7 @@ function LoginPage(props) {
     document.title = "Guess Who - Login";
   }, []);
 
+  // Function to handle login, check input fields and, ultimately, navigate to the home page
   async function handleLoginAndNavigate() {
     const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 
@@ -30,6 +31,7 @@ function LoginPage(props) {
     }
   }
 
+  // Function to handle login and refresh the user data on App.js
   const handleLogin = async () => {
     try {
       const user = await API.logIn(props.email, password);
@@ -44,7 +46,7 @@ function LoginPage(props) {
     }
   };
   
-
+  // Function to handle logout and refresh the user data on App.js
   const handleLogout = async () => {
     try {
       await API.logOut();
@@ -83,7 +85,6 @@ function LoginPage(props) {
                 />
               </div>
               {errorMessage !== "" && (<div className="error-message m-2">{errorMessage}</div>)}
-
             </div>
             )}
             {props.loggedIn && (

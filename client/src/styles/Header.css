@@ -1,9 +1,17 @@
+/* MAIN CONTAINER STYLING */
 .main {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+/* LOGO STYLING */
+.logo-navbar {
+    height: 70px; 
+    margin-right: 20px;
+}
+
+/* LOGIN BUTTON STYLING */
 .login-button {
     width: 120px;
     height: 55px;

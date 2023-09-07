@@ -11,6 +11,7 @@ function Header(props) {
 
     const isRoot = location.pathname === "/";
 
+    // Update the username in the header when the user logs in or out
     useEffect(() => {
         if(props.loggedIn == true) {
             if(props.name != null)

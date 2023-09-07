@@ -8,6 +8,7 @@ function Guess({ type, onGuess, isCorrect }) {
     const [title, setTitle] = useState("");
     const [activeButton, setActiveButton] = useState("");
 
+    // Fetch values on each property from the server
     useEffect(() => {
         async function fetchData() {
           const values = await API.getValues(type);
@@ -16,7 +17,7 @@ function Guess({ type, onGuess, isCorrect }) {
       
         fetchData();
 
-        // Update the title based on the type
+        // Update the title based on the type of property
         switch (type) {
             case "hair":
                 setTitle("The color of the hair is ....?");
@@ -61,7 +62,7 @@ function Guess({ type, onGuess, isCorrect }) {
 
     const handleButtonClick = (choice) => {
         setActiveButton(choice);
-        onGuess(type, choice); // Call onGuess with type and selected value
+        onGuess(type, choice); // Call parent onGuess with type and selected value
     };
 
     return (

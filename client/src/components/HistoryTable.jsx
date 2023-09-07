@@ -4,6 +4,7 @@ import dayjs from "dayjs";
 import "../styles/HistoryTable.css";
 
 function HistoryTable({ history, limit }) {
+  // If there is no history data, display a message
   if (!history || history.length === 0) {
     return <p>No history data available...😔 Log in and start playing!</p>;
   }

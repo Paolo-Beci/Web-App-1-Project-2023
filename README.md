@@ -175,7 +175,7 @@
     "score": 10  
   }
   ```
-  - Error responses:  `500 Internal Server Error` (generic error), `401 Unauthorized User` (not authenticated), `400 Bad Request` (SECRET ITEM NOT NOT GENERATED, happens when the user tries to add a match without having started one)
+  - Error responses:  `500 Internal Server Error` (generic error), `401 Unauthorized User` (not authenticated), `400 Bad Request` ("SECRET_ITEM not available yet", happens when the user tries to add a match without having started one)
 
 
 

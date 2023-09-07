@@ -16,6 +16,7 @@ function GamePage(props) {
   const [n_guesses, setGuesses] = useState(0);
   const [n_items, setItems] = useState(0);
   const [points, setPoints] = useState(0);
+  const [selectedCardId, setSelectedCardId] = useState(null);
   const [correctGuesses, setCorrectGuesses] = useState({
     hair: null,
     eyes: null,
@@ -30,8 +31,6 @@ function GamePage(props) {
     age: null,
     skin_color: null,
   });
-
-  const [selectedCardId, setSelectedCardId] = useState(null);
 
   useEffect(() => {
     document.title = 'Guess Who - Game';
@@ -52,6 +51,7 @@ function GamePage(props) {
     }
   }, []);
 
+  // Fetch cards from the server
   useEffect(() => {
     async function fetchData() {
       const fetchedCards = await API.getCards(difficulty);
@@ -62,6 +62,7 @@ function GamePage(props) {
     fetchData();
   }, []);
 
+  // Selected card id update on console
   useEffect(() => {
     console.log("Selected card id: " + selectedCardId);
   }, [selectedCardId]);
@@ -116,7 +117,7 @@ function GamePage(props) {
     setSelectedCardId(cardId);
   };
 
-  // Handle deselection of card
+  // Handle card deselection
   const handleCardDeselect = () => {
     setSelectedCardId(null);
   };

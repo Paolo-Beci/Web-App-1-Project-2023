@@ -1,3 +1,4 @@
+/* MAIN HISTORY CONTAINER */
 .history-container {
     display: flex;
     flex-direction: column;
@@ -5,6 +6,7 @@
     min-width: fit-content;
 }
 
+/* HISTORY COLUMNS STYLING */
 .history-col {
     display: flex;
     flex-direction: row;

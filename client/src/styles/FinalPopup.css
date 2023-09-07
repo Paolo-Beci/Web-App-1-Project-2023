@@ -1,3 +1,4 @@
+/* POPUP SETTINGS */
 .final-popup {
     display: flex;
     flex-direction: column;
@@ -18,4 +19,3 @@
 .final-popup .guess-button {
     margin-top: 20px;
 }
-  

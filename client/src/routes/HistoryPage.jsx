@@ -8,7 +8,6 @@ import API from "../API";
 function HistoryPage() {
   const navigate = useNavigate();
   const limit = null;
-
   const [history, setHistory] = useState([]);
   const [points, setPoints] = useState(0);
 
@@ -22,6 +21,7 @@ function HistoryPage() {
     return historyArray.reduce((total, historyEntry) => total + historyEntry.score, 0);
   };
 
+  // Fetch history from the server
   useEffect(() => {
     API.getHistory()
       .then((fetchedHistory) => {

@@ -8,7 +8,6 @@ import API from "../API";
 
 function HomePage(props) {
     const navigate = useNavigate();
-
     const [diff, setDiff] = useState("medium");
     const [activeButton, setActiveButton] = useState(null);
     const [history, setHistory] = useState([]);
@@ -25,6 +24,7 @@ function HomePage(props) {
         setActiveButton(difficulty);
     };
 
+    // Fetch history from the server
     useEffect(() => {
         if(user !== null && user !== undefined) {
             API.getHistory(user.id)

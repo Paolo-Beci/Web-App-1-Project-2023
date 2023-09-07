@@ -17,6 +17,7 @@ function App() {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
 
+  // Check if user previously logged in and cookie session is still valid
   useEffect(() => {
     const init = async () => {
       try {

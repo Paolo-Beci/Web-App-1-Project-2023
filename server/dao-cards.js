@@ -2,9 +2,11 @@
 
 const db = require('./db');
 
+// This function returns the list of all the possible values for a given property.
 exports.getValues = (property) => {
   return new Promise((resolve, reject) => {
     const sql = `SELECT DISTINCT ${property} FROM cards`;
+
     db.all(sql, (err, rows) => {
       if (err) {
         reject(err);
@@ -16,9 +18,11 @@ exports.getValues = (property) => {
   });
 };
 
+// This function returns a list of cards randomly chosen.
 exports.getCards = (numCards) => {
   return new Promise((resolve, reject) => {
     const sql = 'SELECT * FROM cards ORDER BY RANDOM() LIMIT ?';
+
     db.all(sql, [numCards], (err, rows) => {
       if (err) {
         reject(err);
@@ -44,8 +48,3 @@ exports.getCards = (numCards) => {
     });
   });
 };
-  
-exports.updateHistory = (user, id, game) => {
-  
-};
-  

@@ -14,7 +14,6 @@ const userDao = require('./dao-users');
 const app = express();
 app.use(morgan('combined'));
 app.use(express.json());            // for parsing application/json
-// app.use(express.static('public'))  TO DO MABYE LATER FOR CARDS IMAGES
 
 // Configure CORS to allow requests from a specific origin
 const corsOptions = {
@@ -37,16 +36,13 @@ passport.use(new LocalStrategy(async function verify(email, password, callback) 
 }));
 
 // Serializing in the session the user object given from LocalStrategy(verify).
-passport.serializeUser(function (user, callback) { // this user is id + username + name 
+passport.serializeUser(function (user, callback) { // this user is id + mail + name 
   callback(null, user);
 });
 
 // Starting from the data in the session, we extract the current (logged-in) user.
 passport.deserializeUser(function (user, callback) {
-  // if needed, we can do extra check here (e.g., double check that the user is still in the database, etc.)
-  // e.g.: return userDao.getUserById(id).then(user => callback(null, user)).catch(err => callback(err, null));
-
-  return callback(null, user); // this will be available in req.user
+  return userDao.getUserById(user.id).then(user => callback(null, user)).catch(err => callback(err, null));
 });
 
 // Creating the session 
@@ -86,7 +82,7 @@ app.post('/api/sessions', function(req, res, next) {
             return next(err);
           
           // req.user contains the authenticated user, we send all the user info back
-          // this is coming from userDao.getUser() in LocalStratecy Verify Fn
+          // this is coming from userDao.getUser() in LocalStrategy
           return res.json(req.user);
         });
     })(req, res, next);
@@ -97,9 +93,8 @@ app.post('/api/sessions', function(req, res, next) {
 app.get('/api/sessions/current', async (req, res) => {
     if(req.isAuthenticated()) {
         const userServer = await userDao.getUserById(req.user.id);
-        // console.log("userServer", userServer)
 
-        console.log("USER SERVER -> id"+userServer.id+ " email"+ userServer.email+ " name"+ userServer.name);
+        console.log("USER SERVER -> id: "+userServer.id+ " - email: "+ userServer.email+ " - name: "+ userServer.name);
         res.status(200).json({ "id":userServer.id, "email": userServer.email, "name": userServer.name });
     } else
         res.status(401).json({error: 'Not authenticated'});
@@ -114,13 +109,13 @@ app.delete('/api/sessions/current', isLoggedIn, (req, res) => {
 });
 
 // REGISTER
+// This is a utility route used for performing registration, it is not used by the client as it wasn't a requirement.
 app.post('/api/register', (req, res) => {
-
     const email = req.body.email;
     const name = req.body.name;
     const password = req.body.password;
-  
     const result = userDao.register(email, name, password);
+    
     if (result) {
       res.status(200).json({message: "FUNZIONA"});
     } else {
