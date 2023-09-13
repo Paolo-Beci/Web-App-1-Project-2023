@@ -7,6 +7,15 @@
 - Run `cd client` -> `npm install` -> `npm run dev`
 - Enjoy! :stuck_out_tongue_winking_eye:
 
+# Usage info
+## Example Screenshots
+
+![Screenshot](./img/home_page.png)
+![Screenshot](./img/game_page.png)
+![Screenshot](./img/history_page.png)
+![Screenshot](./img/login_page.png)
+![Screenshot](./img/login1_page.png)
+
 # Server side
 ## API Server
 
@@ -207,15 +216,6 @@
 - `HistoryPage` (in `HistoryPage.jsx`): it is the history page component, it contains the history table of the logged user and it is dinamically generated based on the database 'history' entries.
 - `HomePage` (in `HomePage.jsx`): it is the home page component, it contains the buttons to all of the website routes. Here you can select the difficulty of the game and start a new match, or you can access the history page to see all the matches played.
 - `LoginPage` (in `LoginPage.jsx`): it is the login page component, it contains the login form. If the user is not authenticated it shows the login form, otherwise it shows the user info and the logout button.
-
-# Usage info
-## Example Screenshots
-
-![Screenshot](./img/home_page.png)
-![Screenshot](./img/game_page.png)
-![Screenshot](./img/history_page.png)
-![Screenshot](./img/login_page.png)
-![Screenshot](./img/login1_page.png)
 
 ## Users Credentials
 
