@@ -1,4 +1,5 @@
 # Exam: "Guess Who? - Celebrity Edition"
+This is a React Js web application with a real-world structure (client and server API).
 
 # How to run
 - Open main folder
